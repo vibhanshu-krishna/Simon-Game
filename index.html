@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Simon Says</h1>
+    <div class="container">
+        <div id="redSq" class="Square" onclick="match()"></div>
+        <div id="greenSq" class="Square" onclick="match()"></div>
+    </div>
+    <div class="container">
+        <div id="blueSq" class="Square" onclick="match()"></div>
+        <div id="yellowSq" class="Square" onclick="match()"></div>
+    </div><br>
+    <div style="text-align: center;">
+        <input type="submit" value="Start Game" onclick="start()">
+        <input type="submit" value="Reset" onclick="reset()">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
