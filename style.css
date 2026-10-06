@@ -1,16 +1,35 @@
-.container{
-    align-items: center;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: bisque;
+    text-align: center;
+}
+
+.div{
+    height: 70vh;
     display: flex;
-    align-self: center;
     justify-content: center;
+    align-items: center;
+}
+
+.container{
+    height: 56vmin;
+    width: 56vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vim;
 }
 
 .Square{
-    height: 160px;
-    width: 160px;
-    border: 1px solid black;
-    margin: 0.5px 0.5px;
-    
+    margin: 2px;
+    height: 27vmin;
+    width: 27vmin;
+    border: none;
 }
 
 #redSq{
@@ -29,7 +48,7 @@
 }
 
 #yellowSq{
-    border-radius: 0% 0% 1000% 0% ;
+    border-radius: 0% 0% 100% 0% ;
         background-color: yellow;
 }
 
