@@ -1,11 +1,10 @@
-let n=1;
+let level=0;
+let started=false;
 
-const redSq=document.querySelector("#redSq");
-const greenSq=document.querySelector("#greenSq");
-const blueSq=document.querySelector("#blueSq");
-const yellowSq=document.querySelector("#yellowSq");
+let gameSeq=[];
+let userSeq=[];
 
-const choose=[redSq,greenSq,blueSq,yellowSq];
+const choose=["redSq","greenSq","blueSq","yellowSq"];
 
 const startBtn=document.querySelector("#start");
 const resetBtn=document.querySelector("#reset");
@@ -16,7 +15,7 @@ const getRandom=()=>{
 }
 
 startBtn.addEventListener("click", ()=>{
-    
+    if
 });
 
 
