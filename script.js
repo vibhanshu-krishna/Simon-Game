@@ -12,11 +12,21 @@ const resetBtn=document.querySelector("#reset");
 const getRandom=()=>{
     let randomVal=Math.floor(Math.random()*4);
     return randomVal;
-}
+};
 
 startBtn.addEventListener("click", ()=>{
-    if
+    if(!started)
+        return;
+    started=true;
+    nextLevel();
 });
+
+const nextLevel=()=>{
+    userSeq=[];
+    level++;
+    let randColor=choose[getRandom()];
+    console.log(randColor);
+};
 
 
 
