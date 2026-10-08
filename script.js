@@ -15,7 +15,7 @@ const getRandom=()=>{
 };
 
 startBtn.addEventListener("click", ()=>{
-    if(!started)
+    if(started)
         return;
     started=true;
     nextLevel();
