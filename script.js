@@ -24,8 +24,11 @@ startBtn.addEventListener("click", ()=>{
 const nextLevel=()=>{
     userSeq=[];
     level++;
-    let randColor=choose[getRandom()];
-    console.log(randColor);
+    for(let i=0;i<level;i++){
+        let randColor=choose[getRandom()];
+        console.log(randColor);
+    }
+    
 };
 
 
