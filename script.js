@@ -14,6 +14,7 @@ const getRandom=()=>{
     return randomVal;
 };
 
+
 startBtn.addEventListener("click", ()=>{
     if(started)
         return;
@@ -21,15 +22,29 @@ startBtn.addEventListener("click", ()=>{
     nextLevel();
 });
 
-const nextLevel=()=>{
+const nextLevel= async ()=>{
     userSeq=[];
     level++;
     for(let i=0;i<level;i++){
         let randColor=choose[getRandom()];
-        console.log(randColor);
+        const randGlow= await glow(randColor);
+        userSeq.push(randColor);
     }
+    console.log(userSeq);
+};
+
+const glow=(randColor)=>{
+    return new Promise((resolve)=>{
+    let choice=document.getElementById(randColor);
+    choice.style.opacity="0.5";
+    setTimeout(()=>{
+        choice.style.opacity="1";
+        resolve();
+    }, 300);
+    });
     
 };
+
 
 
 
