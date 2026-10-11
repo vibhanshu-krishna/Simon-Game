@@ -4,6 +4,12 @@ let started=false;
 let gameSeq=[];
 let userSeq=[];
 
+const buttons=document.querySelectorAll(".Square");
+
+buttons.forEach(button=>{
+    button.disabled=true;
+});
+
 const choose=["redSq","greenSq","blueSq","yellowSq"];
 
 const startBtn=document.querySelector("#start");
@@ -23,15 +29,21 @@ startBtn.addEventListener("click", ()=>{
 });
 
 const nextLevel= async ()=>{
-    userSeq=[];
+    gameSeq=[];
     level++;
     for(let i=0;i<level;i++){
         let randColor=choose[getRandom()];
         const randGlow= await glow(randColor);
-        userSeq.push(randColor);
+        gameSeq.push(randColor);
     }
-    console.log(userSeq);
+    matchUserSeq(gameSeq);
 };
+
+const matchUserSeq=(gameSeq)=>{
+    buttons.forEach(button=>{
+        button.disabled=false;
+    });
+}
 
 const glow=(randColor)=>{
     return new Promise((resolve)=>{
