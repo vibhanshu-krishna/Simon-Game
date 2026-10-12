@@ -31,12 +31,14 @@ startBtn.addEventListener("click", ()=>{
 
 const nextLevel= async ()=>{
     gameSeq=[];
+    userSeq=[];
     level++;
     for(let i=0;i<level;i++){
         let randColor=choose[getRandom()];
-        const randGlow= await glow(randColor);
         gameSeq.push(randColor);
+        const randGlow= await glow(randColor);
     }
+    console.log(gameSeq);
     matchUserSeq(gameSeq);
 };
 
@@ -44,10 +46,6 @@ const matchUserSeq= async (gameSeq)=>{
     buttons.forEach(button=>{
         button.disabled=false;
     });
-    for(let i=0;i<level;i++){
-       await getId();
-    }
-    
 }
 
 buttons.forEach(button=>{
@@ -56,13 +54,18 @@ buttons.forEach(button=>{
             button.disabled=true;
         });
     }
-    addEventListener("click",()=>{
+    button.addEventListener("click",()=>{
         if(!started)
             return;
-        let clikedBtn=this.id;
-        userSeq.push(clikedBtn);
+        button.style.opacity="0.5"
+        setTimeout(()=>{
+            button.style.opacity="1"
+        },300);
+        let clickedBtn=this.id;
+        console.log(clickedBtn);//check
+        userSeq.push(clickedBtn);
         i++;
-        check(userseq[i-1]);
+        check(clickedBtn);
     });
 });
 
@@ -77,6 +80,37 @@ const glow=(randColor)=>{
     });
     
 };
+
+const check=(btn)=>{
+    if(btn===gameSeq[i-1]){
+        console.log("correct");
+        if(userSeq.length===gameSeq.length){
+            setTimeout(()=>{
+                nextLevel();
+            },1000);
+        }
+    }
+    else{
+        gameOver();
+    }
+};
+
+const gameOver=()=>{
+    alert(`GAME OVER Your Score ${level-1}`);
+    userSeq=[];
+    gameSeq=[];
+
+    level=0;
+    started=false;
+};
+
+resetBtn.addEventListener("click",()=>{
+    userSeq=[];
+    gameSeq=[];
+
+    level=0;
+    started=false;
+});
 
 
 
