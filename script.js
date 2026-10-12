@@ -1,5 +1,6 @@
 let level=0;
 let started=false;
+let i=0;
 
 let gameSeq=[];
 let userSeq=[];
@@ -39,11 +40,31 @@ const nextLevel= async ()=>{
     matchUserSeq(gameSeq);
 };
 
-const matchUserSeq=(gameSeq)=>{
+const matchUserSeq= async (gameSeq)=>{
     buttons.forEach(button=>{
         button.disabled=false;
     });
+    for(let i=0;i<level;i++){
+       await getId();
+    }
+    
 }
+
+buttons.forEach(button=>{
+    if(i>=level){
+            buttons.forEach(button=>{
+            button.disabled=true;
+        });
+    }
+    addEventListener("click",()=>{
+        if(!started)
+            return;
+        let clikedBtn=this.id;
+        userSeq.push(clikedBtn);
+        i++;
+        check(userseq[i-1]);
+    });
+});
 
 const glow=(randColor)=>{
     return new Promise((resolve)=>{
